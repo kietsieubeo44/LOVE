@@ -1,12 +1,16 @@
-#container {
-    position: relative;
+@keyframes slideIn {
+    0% {
+      transform: translateX(-100%);
+      color: red;
+    }
+    100% {
+      transform: translateX(0);
+      color: black;
+    }
   }
   
-  #text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 24px;
+  .letter {
+    display: inline-block;
+    animation: slideIn 0.5s ease forwards;
   }
   

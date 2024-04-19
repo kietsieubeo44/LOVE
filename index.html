@@ -1,6 +1,20 @@
-<div id="lyrics"></div>
-<audio id="audio" controls>
-    <source src="Output.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOVE-TK Lam</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Nếu bạn có CSS riêng -->
+</head>
+
+<body onload="playMusic()">
+    <div id="lyrics"></div>
+    <audio id="audio" autoplay loop>
+        <source src="Output.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
     <script src="script.js"></script>
-</audio>
+</body>
+
+</html>
