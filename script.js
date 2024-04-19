@@ -1,5 +1,5 @@
 const lyricData = [
-    { text: "My", time: 0.35 },
+    { text: "My", time: 0.52 },
     { text: "baby~", time: 1.36 },
     { text: "I", time: 2.60 },
     { text: "love", time: 3 },
@@ -26,11 +26,10 @@ const lyricData = [
     { text: " ", time: 12.0 },
 ];
 
-
-
 const lyricElement = document.getElementById('lyrics');
 const audio = document.getElementById('audio');
 let currentIndex = 0;
+let isPaused = false;
 
 function showLyrics() {
     const currentLyric = lyricData[currentIndex];
@@ -48,13 +47,26 @@ function showLyrics() {
     }
 }
 
+audio.addEventListener('ended', function() {
+    currentIndex = 0; // Reset lại từ đầu
+    lyricElement.textContent = ''; // Xóa nội dung lời bài hát
+    audio.currentTime = 0; // Đặt thời gian của audio về 0 để chuẩn bị cho lần phát tiếp theo
+});
 
-
+lyricElement.addEventListener('click', function() {
+    if (audio.paused) {
+        audio.play(); // Nếu audio đang dừng, bắt đầu phát
+        isPaused = false;
+    } else {
+        audio.pause(); // Nếu audio đang phát, dừng lại
+        isPaused = true;
+    }
+});
 
 audio.addEventListener('play', function() {
-    currentIndex = 0;
-    lyricElement.textContent = '';
-    showLyrics();
+    if (!isPaused) {
+        showLyrics(); // Bắt đầu hiển thị lời bài hát khi audio được phát
+    }
 });
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -66,3 +78,4 @@ document.addEventListener("DOMContentLoaded", function() {
         audio.play();
     }, 500); // 500 milliseconds = 0.5 giây
 });
+
