@@ -3,7 +3,7 @@ body, html {
     height: 100%;
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #efb4e6;
 }
 
 .container {
@@ -18,7 +18,7 @@ body, html {
 #lyrics {
     font-size: 24px; /* Tăng kích thước font */
     font-weight: bold; /* Tăng độ đậm của font */
-    color: #333;
+    color: #f326b9;
     margin-bottom: 20px;
     white-space: pre-line; /* Hiển thị các ký tự xuống dòng */
 }
