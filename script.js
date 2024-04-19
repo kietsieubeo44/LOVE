@@ -1,4 +1,4 @@
-    const lyricData = [
+const lyricData = [
     { text: "My", time: 0 },
     { text: "baby", time: 1 },
     { text: "I", time: 2 },
@@ -22,13 +22,13 @@
     { text: "you", time: 20 },
     { text: "and", time: 21 },
     { text: "I", time: 22 },
-    ];
+];
 
-    const lyricElement = document.getElementById('lyrics');
-    const audio = document.getElementById('audio');
-    let currentIndex = 0;
+const lyricElement = document.getElementById('lyrics');
+const audio = document.getElementById('audio');
+let currentIndex = 0;
 
-    function showLyrics() {
+function showLyrics() {
     const currentLyric = lyricData[currentIndex];
     lyricElement.textContent += currentLyric.text + ' ';
     currentIndex++;
@@ -38,20 +38,20 @@
         const delay = (nextLyricTime - currentLyric.time) * 1000;
         setTimeout(showLyrics, delay);
     }
-    }
+}
 
-    audio.addEventListener('play', function() {
+audio.addEventListener('play', function() {
     currentIndex = 0;
     lyricElement.textContent = '';
     showLyrics();
-    });
-    document.addEventListener("DOMContentLoaded", function() {
-        // Lấy đối tượng âm thanh
-        const audio = document.getElementById('audio');
-        
-        // Bật âm thanh
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Lấy đối tượng âm thanh
+    const audio = document.getElementById('audio');
+    
+    // Trì hoãn việc bật âm thanh sau 0.5 giây
+    setTimeout(function() {
         audio.play();
-    });
-    
-    
-    
+    }, 500); // 500 milliseconds = 0.5 giây
+});
