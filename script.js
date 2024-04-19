@@ -10,6 +10,18 @@ const lyricData = [
     { text: "you", time: 8 },
     { text: "and", time: 9 },
     { text: "I", time: 10 },
+    { text: "love", time: 11 },
+    { text: "you", time: 12 },
+    { text: "oh", time: 13 },
+    { text: "I", time: 14 },
+    { text: "love", time: 15 },
+    { text: "you", time: 16 },
+    { text: "so", time: 17 },
+    { text: "much", time: 18 },
+    { text: "forever", time: 19 },
+    { text: "you", time: 20 },
+    { text: "and", time: 21 },
+    { text: "I", time: 22 },
   ];
   
   const lyricElement = document.getElementById('lyrics');
@@ -28,5 +40,9 @@ const lyricData = [
     }
   }
   
-  audio.addEventListener('play', showLyrics);
+  audio.addEventListener('play', function() {
+    currentIndex = 0;
+    lyricElement.textContent = '';
+    showLyrics();
+  });
   
