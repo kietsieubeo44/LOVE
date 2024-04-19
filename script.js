@@ -1,28 +1,32 @@
 const lyricData = [
-    { text: "My", time: 0 },
-    { text: "baby", time: 1 },
-    { text: "I", time: 2 },
+    { text: "My", time: 0.35 },
+    { text: "baby~", time: 1.36 },
+    { text: "I", time: 2.60 },
     { text: "love", time: 3 },
-    { text: "you", time: 4 },
-    { text: "so", time: 5 },
-    { text: "much", time: 6 },
-    { text: "forever", time: 7 },
-    { text: "you", time: 8 },
-    { text: "and", time: 9 },
-    { text: "I", time: 10 },
-    { text: "love", time: 11 },
-    { text: "you", time: 12 },
-    { text: "oh", time: 13 },
-    { text: "I", time: 14 },
-    { text: "love", time: 15 },
-    { text: "you", time: 16 },
-    { text: "so", time: 17 },
-    { text: "much", time: 18 },
-    { text: "forever", time: 19 },
-    { text: "you", time: 20 },
-    { text: "and", time: 21 },
-    { text: "I", time: 22 },
+    { text: "you", time: 3.17 },
+    { text: "so", time: 3.81 },
+    { text: "much", time: 4.0 },
+    { text: "forever", time: 4.48 },
+    { text: "you", time: 5 },
+    { text: "and", time: 5.51 },
+    { text: "I", time: 5.81 },
+    { text: "I", time: 6.36  },
+    { text: "love", time: 6.61 },
+    { text: "you", time: 7.0 },
+    { text: "oh~", time: 7.92 },
+    { text: "I", time: 8.40 },
+    { text: "love", time: 8.55 },
+    { text: "you", time: 8.60 },
+    { text: "so", time: 9 },
+    { text: "much", time: 9.75 },
+    { text: "forever", time: 10},
+    { text: "you", time: 10.55 },
+    { text: "and", time: 11 },
+    { text: "I", time: 11.5 },
+    { text: " ", time: 12.0 },
 ];
+
+
 
 const lyricElement = document.getElementById('lyrics');
 const audio = document.getElementById('audio');
@@ -37,8 +41,15 @@ function showLyrics() {
         const currentAudioTime = audio.currentTime;
         const delay = (nextLyricTime - currentLyric.time) * 1000;
         setTimeout(showLyrics, delay);
+    } else {
+        currentIndex = 0; // Reset lại từ đầu
+        const delay = lyricData[0].time * 1000; // Lấy thời gian của lời bài hát đầu tiên
+        setTimeout(showLyrics, delay);
     }
 }
+
+
+
 
 audio.addEventListener('play', function() {
     currentIndex = 0;
