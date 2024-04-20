@@ -1,21 +1,20 @@
 const lyricData = [
-    { text: "My", time: 0.45 },
-    { text: "baby~", time: 1.36 },
-    { text: "I", time: 2.60 },
-    { text: "love", time: 3 },
+    { text: "", time: 0.2 },
+    { text: "My", time: 0.55 },
+    { text: "baby", time: 1.36 },
+    { text: "", time: 2.60 },
+    { text: "I love", time: 3 },
     { text: "you", time: 3.17 },
     { text: "so", time: 3.81 },
     { text: "much", time: 4.0 },
     { text: "forever", time: 4.48 },
     { text: "you", time: 5 },
-    { text: "and", time: 5.51 },
-    { text: "I.", time: 5.71 },
-    { text: "I", time: 6.36  },
-    { text: "love", time: 6.61 },
+    { text: "and", time: 5.41 },
+    { text: "I", time: 5.81 },  
+    { text: "I love", time: 6.51 },
     { text: "you", time: 7.0 },
-    { text: "oh~", time: 7.92 },
-    { text: "I", time: 8.40 },
-    { text: "love", time: 8.55 },
+    { text: "ohhh", time: 7.92 },
+    { text: "I love <3", time: 8.55 },
     { text: "you", time: 8.60 },
     { text: "so", time: 9 },
     { text: "much", time: 9.75 },
@@ -25,23 +24,22 @@ const lyricData = [
     { text: "I...", time: 11.5 },
     { text: " ", time: 12.3 },
     // ver 2
-    { text: "My", time: 0.45 },
-    { text: "baby~", time: 1.36 },
-    { text: "I", time: 2.60 },
-    { text: "love", time: 3 },
+    { text: "", time: 0.2 },
+    { text: "My", time: 0.55 },
+    { text: "baby~", time: 1.16 },
+    { text: "", time: 2.60 },
+    { text: "I love", time: 2.8 },
     { text: "you", time: 3.17 },
     { text: "so", time: 3.81 },
     { text: "much", time: 4.0 },
     { text: "forever", time: 4.48 },
     { text: "you", time: 5 },
     { text: "and", time: 5.51 },
-    { text: "I.", time: 5.81 },
-    { text: "I", time: 6.36  },
-    { text: "love", time: 6.61 },
+    { text: "I", time: 5.81 },  
+    { text: "I love", time: 6.51 },
     { text: "you", time: 7.0 },
-    { text: "oh~", time: 7.92 },
-    { text: "I", time: 8.40 },
-    { text: "love", time: 8.55 },
+    { text: "ohhh", time: 7.92 },
+    { text: "I love <3", time: 8.55 },
     { text: "you", time: 8.60 },
     { text: "so", time: 9 },
     { text: "much", time: 9.75 },
@@ -65,9 +63,7 @@ function showLyrics() {
     wordSpan.textContent = currentLyric.text + ' ';
     lyricElement.appendChild(wordSpan);
     currentIndex++;
-    setTimeout(() => {
-        wordSpan.style.opacity = 1;
-    }, 10);
+
     if (currentIndex < lyricData.length) {
         const nextLyricTime = lyricData[currentIndex].time;
         const currentAudioTime = audio.currentTime;
@@ -86,15 +82,15 @@ function showLyrics() {
     }
 }
 
-
 function pushLyricsUp() {
-    lyricElement.classList.add('fade-out'); // Thêm lớp fade-out
+    lyricElement.classList.add('fade-out'); // Add the fade-out class
     setTimeout(() => {
-        lyricElement.textContent = ''; // Xóa nội dung
-        lyricElement.classList.remove('fade-out'); // Loại bỏ lớp fade-out
-        lyricElement.style.transform = "none"; // Đặt lại transform
-    }, 1300); // Thời gian chờ, tương tự như transition time
+        // lyricElement.textContent = ''; // Remove this line to keep the lyrics visible
+        lyricElement.classList.remove('fade-out'); // Remove the fade-out class
+        lyricElement.style.transform = "none"; // Reset the transform
+    }, 1300); // Waiting time, similar to the transition time
 }
+
 
 
 audio.addEventListener('play', function() {
@@ -104,9 +100,31 @@ audio.addEventListener('play', function() {
     showLyrics();
 });
 
-
-/*
 document.addEventListener("DOMContentLoaded", function() {
+    const audio = document.getElementById('audio');
+    setTimeout(function() {
+        audio.play();
+    }, 500); // 500 milliseconds = 0.5 seconds
+});
+audio.addEventListener('ended', function() {
+    // Clear all displayed lyrics
+    lyricElement.textContent = '';
+
+    // Display "I love you" with heart effect
+    const loveYouText = document.createElement('span');
+    loveYouText.textContent = "I love you ";
+    loveYouText.classList.add('love-you-text', 'glowing-text'); // Add both classes for styling and glow effect
+    const heartIcon = document.createElement('span');
+    heartIcon.innerHTML = "&hearts;";
+    heartIcon.style.color = "red"; // Customize the heart color if needed
+    loveYouText.appendChild(heartIcon);
+    lyricElement.appendChild(loveYouText);
+});
+
+
+
+
+/*document.addEventListener("DOMContentLoaded", function() {
     // Lấy đối tượng âm thanh
     const audio = document.getElementById('audio');
     
