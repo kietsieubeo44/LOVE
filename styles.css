@@ -1,9 +1,10 @@
 /* styles.css */
+
 body, html {
     height: 100%;
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #efb4e6;
+    background-color: #333;
 }
 
 .container {
@@ -16,12 +17,18 @@ body, html {
 }
 
 #lyrics {
-    font-size: 24px; /* Tăng kích thước font */
-    font-weight: bold; /* Tăng độ đậm của font */
+    font-size: 24px;
+    font-weight: bold;
     color: #f326b9;
     margin-bottom: 20px;
-    white-space: pre-line; /* Hiển thị các ký tự xuống dòng */
+    white-space: pre-line;
+    margin: auto;
+    color: #f326b9;
+    font: 700 normal 2.5em 'tahoma';
+    text-shadow: 5px 2px #222324, 2px 4px #222324, 3px 5px #222324;
 }
+
+
 
 .audio-controls {
     margin-top: 20px;
@@ -30,13 +37,15 @@ body, html {
 .audio-controls button {
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #4CAF50;
-    color: white;
+    background-color: #4caf4f00;
+    color: rgba(255, 255, 255, 0);
     border: none;
     border-radius: 5px;
-    cursor: pointer;
+ 
+    transition: background-color 0.3s, color 0.3s; /* Thêm hiệu ứng chuyển động */
 }
 
 .audio-controls button:hover {
-    background-color: #45a049;
+    background-color: #45a04900;
+    color: rgba(255, 255, 255, 1); /* Tăng độ rõ của màu khi hover */
 }
