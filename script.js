@@ -116,7 +116,8 @@ audio.addEventListener('ended', function() {
     loveYouText.classList.add('love-you-text', 'glowing-text'); // Add both classes for styling and glow effect
     const heartIcon = document.createElement('span');
     heartIcon.innerHTML = "&hearts;";
-    heartIcon.style.color = "red"; // Customize the heart color if needed
+    heartIcon.style.color = "#FF007F"; // Set màu hồng của nhóm Blackpink cho hình trái tim
+    // Customize the heart color if needed
     loveYouText.appendChild(heartIcon);
     lyricElement.appendChild(loveYouText);
 });

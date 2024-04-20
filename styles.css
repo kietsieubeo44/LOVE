@@ -41,7 +41,7 @@ body, html {
 }
 
 .love-you-text {
-    font-size: 36px;
+    font-size: 76px;
     color:  #f326b9; /* Màu hồng nhóm nhạc Black Pink */
     border: none;
     border-radius: 5px;
@@ -55,5 +55,13 @@ body, html {
     color: transparent; /* Use transparent instead of rgba(255, 255, 255, 0) */
 }
 
+@keyframes neon-glow {
+    from { text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff69b4, 0 0 70px #ff69b4, 0 0 80px #ff69b4, 0 0 100px #ff69b4, 0 0 150px #ff69b4; }
+    to { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff69b4, 0 0 35px #ff69b4, 0 0 40px #ff69b4, 0 0 50px #ff69b4, 0 0 75px #ff69b4; }
+}
+
+.glowing-text {
+    animation: neon-glow 1s ease-in-out infinite alternate;
+}
 
 
