@@ -50,6 +50,22 @@ const lyricData = [
     { text: " ", time: 12.3 },
 ];
 
+// Kiểm tra xem có dữ liệu về số lượng người xem trong localStorage không
+let views = localStorage.getItem('views');
+
+if (!views) {
+    // Nếu không có dữ liệu, khởi tạo số lượng người xem là 1
+    views = 1;
+} else {
+    // Nếu có dữ liệu, tăng số lượng người xem lên 1
+    views = parseInt(views) + 1;
+}
+
+// Lưu số lượng người xem vào localStorage
+localStorage.setItem('views', views);
+
+// Hiển thị số lượng người xem lên trang web
+document.getElementById('view-count').textContent = views;
 
 
 const lyricElement = document.getElementById('lyrics');
