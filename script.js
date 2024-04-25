@@ -1,54 +1,28 @@
+// Tạo một hàm để hiển thị văn bản tại thời điểm cụ thể
+function displayTextAtTime(text, time) {
+    setTimeout(function() {
+        console.log(text); // Thay console.log bằng phương thức hiển thị văn bản của bạn
+    }, (time - 1) * 1000); // Đổi time - 1 vì setTimeout sẽ gọi hàm sau time (ms)
+}
+
+// Mảng chứa dữ liệu văn bản và thời gian
 const lyricData = [
-    { text: "", time: 0.2 },
-    { text: "My", time: 0.55 },
-    { text: "baby", time: 1.36 },
-    { text: "", time: 2.60 },
-    { text: "I love", time: 3 },
-    { text: "you", time: 3.17 },
-    { text: "so", time: 3.81 },
-    { text: "much", time: 4.0 },
-    { text: "forever", time: 4.48 },
-    { text: "you", time: 5 },
-    { text: "and", time: 5.41 },
-    { text: "I", time: 5.81 },  
-    { text: "I love", time: 6.51 },
-    { text: "you", time: 7.0 },
-    { text: "ohhh", time: 7.92 },
-    { text: "I love <3", time: 8.55 },
-    { text: "you", time: 8.60 },
-    { text: "so", time: 9 },
-    { text: "much", time: 9.75 },
-    { text: "forever", time: 10},
-    { text: "you", time: 10.55 },
-    { text: "and", time: 11 },
-    { text: "I...", time: 11.5 },
-    { text: " ", time: 12.3 },
-    // ver 2
-    { text: "", time: 0.2 },
-    { text: "My", time: 0.55 },
-    { text: "baby~", time: 1.16 },
-    { text: "", time: 2.60 },
-    { text: "I love", time: 2.8 },
-    { text: "you", time: 3.17 },
-    { text: "so", time: 3.81 },
-    { text: "much", time: 4.0 },
-    { text: "forever", time: 4.48 },
-    { text: "you", time: 5 },
-    { text: "and", time: 5.51 },
-    { text: "I", time: 5.81 },  
-    { text: "I love", time: 6.51 },
-    { text: "you", time: 7.0 },
-    { text: "ohhh", time: 7.92 },
-    { text: "I love <3", time: 8.55 },
-    { text: "you", time: 8.60 },
-    { text: "so", time: 9 },
-    { text: "much", time: 9.75 },
-    { text: "forever", time: 10},
-    { text: "you", time: 10.55 },
-    { text: "and", time: 11 },
-    { text: "I...", time: 11.5 },
-    { text: " ", time: 12.3 },
+    { text: "", time:0 },
+    { text: "Sài Gòn ngày xưa", time: 25 },
+    { text: "Ấp ủ tình yêu của anh từ những thế kỉ trước", time: 27.5 },
+    { text: "Anh có thể làm những điều tuyệt vời", time: 29.85 },
+    { text: "Mà bản thân họ chẳng thể nào nghĩ được", time: 31.85 },
+    { text: "Sài Gòn ngày xưa", time: 33 },
+    { text: "Là những cuộc chiến", time: 34 },
+    { text: "Nhưng không thể diết được tình Yêu (Cho Ngọc)", time: 35 },
+    // Thêm các đối tượng khác tại các thời điểm khác nếu cần
 ];
+
+// Duyệt qua mảng lyricData và hiển thị văn bản tại các thời điểm tương ứng
+lyricData.forEach(function(lyric) {
+    displayTextAtTime(lyric.text, lyric.time);
+});
+
 
 // Kiểm tra xem có dữ liệu về số lượng người xem trong localStorage không
 let views = localStorage.getItem('views');
@@ -80,6 +54,11 @@ function showLyrics() {
     lyricElement.appendChild(wordSpan);
     currentIndex++;
 
+    // Xóa câu trước khi thêm câu mới
+    if (currentIndex > 1) {
+        lyricElement.removeChild(lyricElement.firstChild);
+    }
+
     if (currentIndex < lyricData.length) {
         const nextLyricTime = lyricData[currentIndex].time;
         const currentAudioTime = audio.currentTime;
@@ -97,6 +76,7 @@ function showLyrics() {
         setTimeout(pushLyricsUp, pushDelay);
     }
 }
+
 
 function pushLyricsUp() {
     lyricElement.classList.add('fade-out'); // Add the fade-out class

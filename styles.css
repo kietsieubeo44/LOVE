@@ -6,7 +6,15 @@ body, html {
     font-family: Arial, sans-serif;
     background-color: #333333;
 }
-
+#Ngoc
+{
+    font: 700 normal 1em 'tahoma';
+    color: #f65fcb;
+    margin-bottom: 10px;
+    white-space: pre-line;
+    margin: auto;
+    text-shadow: 5px 2px #222324, 2px 4px #222324, 3px 5px #222324;  
+}
 
 .container {
     display: flex;
