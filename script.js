@@ -8,7 +8,7 @@ function displayTextAtTime(text, time) {
 // Mảng chứa dữ liệu văn bản và thời gian
 const lyricData = [
     { text: "", time:0 },
-    { text: "Sài Gòn ngày xưa", time: 25.8 },
+    { text: "Sài Gòn ngày xưa", time: 26.4 },
     { text: "Ấp ủ tình yêu của anh từ những thế kỉ trước", time: 27.5 },
     { text: "Anh có thể làm những điều tuyệt vời", time: 29.85 },
     { text: "Mà bản thân họ chẳng thể nào nghĩ được", time: 31.85 },
