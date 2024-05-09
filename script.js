@@ -14,7 +14,7 @@ const lyricData = [
     { text: "Mà bản thân họ chẳng thể nào nghĩ được", time: 31.85 },
     { text: "Sài Gòn ngày xưa", time: 33 },
     { text: "Là những cuộc chiến", time: 34 },
-    { text: "Nhưng không thể diết được tình Yêu (Cho Ngọc)", time: 35 },
+    { text: "Nhưng không thể diết được tình Yêu ", time: 35 },
     // Thêm các đối tượng khác tại các thời điểm khác nếu cần
 ];
 
